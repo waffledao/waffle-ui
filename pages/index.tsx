@@ -11,7 +11,7 @@ export default function Home() {
       <Nav sliding />
       <Nav />
       <BaseContainer>
-        {[...Array(20).keys()].map(a => (
+        {[...Array.from(Array(20).keys())].map(a => (
           <Row key={a} css={{ marginBottom: '1rem' }} gutter={[16, 16]}>
             <Col xs={24} sm={12} md={6} lg={6} xl={6}>
               <Card title="Raffle Title" bordered={false}>

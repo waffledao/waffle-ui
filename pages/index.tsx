@@ -4,7 +4,6 @@ import { jsx } from '@emotion/react'
 import BaseContainer from 'components/BaseContainer'
 import Nav from 'components/Nav'
 import RaffleCard from 'components/RaffleCard'
-import Spacer from 'components/styled/Spacer'
 
 export default function Home() {
   return (

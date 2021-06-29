@@ -1,9 +1,9 @@
-import React from 'react'
-import { Row, Col, Card } from 'antd'
+import { Row } from 'antd'
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react'
 import BaseContainer from 'components/BaseContainer'
 import Nav from 'components/Nav'
+import RaffleCard from 'components/RaffleCard'
 
 export default function Home() {
   return (
@@ -11,28 +11,11 @@ export default function Home() {
       <Nav sliding />
       <Nav />
       <BaseContainer>
-        {[...Array.from(Array(20).keys())].map(a => (
-          <Row key={a} css={{ marginBottom: '1rem' }} gutter={[16, 16]}>
-            <Col xs={24} sm={12} md={6} lg={6} xl={6}>
-              <Card title="Raffle Title" bordered={false}>
-                Raffle content
-              </Card>
-            </Col>
-            <Col xs={24} sm={12} md={6} lg={6} xl={6}>
-              <Card title="Raffle Title" bordered={false}>
-                Raffle content
-              </Card>
-            </Col>
-            <Col xs={24} sm={12} md={6} lg={6} xl={6}>
-              <Card title="Raffle Title" bordered={false}>
-                Raffle content
-              </Card>
-            </Col>
-            <Col xs={24} sm={12} md={6} lg={6} xl={6}>
-              <Card title="Raffle Title" bordered={false}>
-                Raffle content
-              </Card>
-            </Col>
+        {[...Array.from(Array(20).keys())].map(i => (
+          <Row key={i} css={{ marginBottom: '1rem' }} gutter={[64, 64]}>
+            {[...Array.from(Array(3).keys())].map(a => (
+              <RaffleCard key={a} />
+            ))}
           </Row>
         ))}
       </BaseContainer>

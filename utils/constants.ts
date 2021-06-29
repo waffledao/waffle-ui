@@ -1,2 +1,3 @@
-export const NAV_HEIGHT = 77
-export const primaryColor = '#AC9D84'
+export const NAV_HEIGHT = 85
+export const primaryColor = '#DEC49D'
+export const secondaryColor = '#FAF6F1'

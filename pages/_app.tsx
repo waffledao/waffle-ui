@@ -17,6 +17,29 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="manifest" href="/manifest.json" />
+        <link href="/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16" />
+        <link href="/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="title" content="Waffle | NFT Raffles" />
+
+        <title>Waffle | NFT Raffles</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
+        {typeof window === 'undefined' && (
+          <style
+            id="holderStyle"
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: `
+         *, *::before, *::after {
+           transition: none!important;
+         }
+         `,
+            }}
+          />
+        )}
       </Head>
       <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />

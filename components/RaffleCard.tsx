@@ -4,12 +4,12 @@ import { jsx } from '@emotion/react'
 import { primaryColor } from 'utils/constants'
 
 const RaffleCard = () => (
-  <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+  <Col xs={24} sm={24} md={8} lg={8} xl={8}>
     <Card
       cover={
         <>
           <img css={{ paddingTop: '3rem' }} alt="Crypto Kitty" src="/kitty.jpg" />
-          <Divider css={{ color: '#DEC49D', marginBottom: 0 }} />
+          <Divider css={{ color: primaryColor, marginBottom: 0 }} />
         </>
       }
       css={{ border: `0.75px solid ${primaryColor}`, boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)' }}
@@ -19,29 +19,29 @@ const RaffleCard = () => (
         Open Raffle
       </span>
       <br />
-      <Typography.Title level={4}>Weird CryptoKitty</Typography.Title>
+      <Typography.Title level={3}>Weird CryptoKitty</Typography.Title>
       <br />
       <Row>
         <Col span={12}>
           <Statistic
             title={
               <Typography.Title level={5}>
-                <span css={{ color: primaryColor, fontSize: '1.2rem' }}>Ticket Price</span>
+                <span css={{ color: primaryColor, fontSize: '1.1rem' }}>Ticket Price</span>
               </Typography.Title>
             }
             value="0.5 ETH"
-            valueStyle={{ fontWeight: 600, fontSize: '1.5rem' }}
+            valueStyle={{ fontWeight: 600, fontSize: '1.25rem' }}
           />
         </Col>
         <Col span={12}>
           <Statistic
             title={
               <Typography.Title level={5}>
-                <span css={{ color: primaryColor, fontSize: '1.2rem' }}>Closes in</span>
+                <span css={{ color: primaryColor, fontSize: '1.1rem' }}>Closes in</span>
               </Typography.Title>
             }
             value="22h 22m 28s"
-            valueStyle={{ fontWeight: 600, fontSize: '1.5rem' }}
+            valueStyle={{ fontWeight: 600, fontSize: '1.25rem' }}
           />
         </Col>
       </Row>

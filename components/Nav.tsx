@@ -4,7 +4,7 @@ import Link from 'next/link'
 /** @jsxImportSource @emotion/react */
 import { jsx, css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { NAV_HEIGHT } from '../utils/constants'
+import { NAV_HEIGHT, secondaryColor } from 'utils/constants'
 
 const MenuWrapper = styled.div`
   & .ant-menu-horizontal::before {
@@ -22,11 +22,11 @@ type NavProps = {
 
 const MenuLogo = () => (
   <Link href="/">
-    <a>
+    <a css={{ width: '238px', textAlign: 'center' }}>
       <img
         css={css`
-          width: 52px;
-          height: 52px;
+          width: 32px;
+          height: 32px;
         `}
         src="/waffle.png"
         alt="Waffle Raffle"
@@ -56,7 +56,7 @@ const Nav: FunctionComponent<NavProps> = ({ sliding }) => {
       <Menu
         selectable={false}
         css={{
-          backgroundColor: sliding ? '#fff' : '#f0f2f5',
+          backgroundColor: sliding ? '#fff' : secondaryColor,
           transition: 'top 200ms ease-out',
           position: sliding ? 'fixed' : 'static',
           ...(sliding && { top: isScrolled ? '0' : `-${NAV_HEIGHT}px` }),
@@ -65,7 +65,7 @@ const Nav: FunctionComponent<NavProps> = ({ sliding }) => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'baseline',
-          padding: '0.75rem 0.5rem',
+          padding: '1rem 0',
           zIndex: 1000,
           border: 0,
         }}
@@ -114,6 +114,8 @@ const Nav: FunctionComponent<NavProps> = ({ sliding }) => {
             .ant-menu-horizontal > &.ant-menu-item:hover {
               border-bottom: 2px solid transparent;
             }
+            width: 238px;
+            text-align: center;
             padding-left: 0;
             padding-right: 0;
             margin: 0;

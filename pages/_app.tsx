@@ -34,23 +34,27 @@ export default function App({ Component, pageProps }: AppProps) {
                 font-family: 'Inter';
                 font-display: swap;
                 font-weight: 400;
-                src: url('/fonts/Inter-Regular.tff') format('woff');
+                src: url('/fonts/Inter-Regular.ttf') format('truetype');
               }
 
               @font-face {
                 font-family: 'Inter';
                 font-display: swap;
                 font-weight: 500;
-                src: url('/fonts/Inter-Medium.tff') format('woff');
+                src: url('/fonts/Inter-Medium.ttf') format('truetype');
               }
 
               @font-face {
                 font-family: 'Inter';
                 font-display: swap;
                 font-weight: 600;
-                src: url('/fonts/Inter-SemiBold.tff') format('woff');
+                src: url('/fonts/Inter-SemiBold.ttf') format('truetype');
               }
-            }
+            
+              body {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+              }
             `,
             /* eslint-enable max-len */
           }}

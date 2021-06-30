@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from 'react'
-import { Button, Menu, Radio } from 'antd'
+import { Menu, Radio } from 'antd'
 import Link from 'next/link'
 /** @jsxImportSource @emotion/react */
 import { jsx, css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { NAV_HEIGHT, primaryColor, secondaryColor } from 'utils/constants'
+import { NAV_HEIGHT, mq, secondaryColor } from 'utils/constants'
+import ActionButton from 'components/ActionButton'
 
 const MenuWrapper = styled.div`
   & .ant-menu-horizontal::before {
@@ -16,35 +17,13 @@ const MenuWrapper = styled.div`
   }
 `
 
-const MenuButton = styled(Button)`
-  text-align: center;
-  outline: none;
-  text-decoration: none;
-  -webkit-box-pack: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-  will-change: transform;
-  transition: transform 450ms ease 0s;
-  transform: perspective(1px) translateZ(0px);
-  font-size: 16px;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  padding: 0.5rem;
-  border-radius: 12px;
-  cursor: pointer;
-  user-select: none;
-  font-weight: 500;
-`
-
 type NavProps = {
   sliding?: boolean
 }
 
 const MenuLogo = () => (
   <Link href="/">
-    <a css={{ width: '288px', textAlign: 'right' }}>
+    <a css={{ textAlign: 'center' }}>
       <img
         css={css`
           width: 32px;
@@ -79,13 +58,16 @@ const Nav: FunctionComponent<NavProps> = ({ sliding }) => {
       <Menu
         selectable={false}
         css={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr 1fr',
+          gridTemplateRows: '1fr',
+          gap: '0px 0px',
           backgroundColor: sliding ? '#fff' : secondaryColor,
           transition: 'top 200ms ease-out',
           position: sliding ? 'fixed' : 'static',
           ...(sliding && { top: isScrolled ? '0' : `-${NAV_HEIGHT}px` }),
           ...(sliding && { color: '#fff' }),
           width: '100%',
-          display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'baseline',
           padding: '1rem 0',
@@ -105,6 +87,7 @@ const Nav: FunctionComponent<NavProps> = ({ sliding }) => {
             padding-left: 0;
             padding-right: 0;
             margin: 0;
+            text-align: center;
           `}
           key="nav"
         >
@@ -113,6 +96,7 @@ const Nav: FunctionComponent<NavProps> = ({ sliding }) => {
             onChange={selectedTab => setTab(selectedTab.target.value)}
             buttonStyle="solid"
             defaultValue="explore"
+            css={{ fontWeight: 600 }}
           >
             <Radio.Button
               css={css`
@@ -147,36 +131,22 @@ const Nav: FunctionComponent<NavProps> = ({ sliding }) => {
             .ant-menu-horizontal > &.ant-menu-item:hover {
               border-bottom: 2px solid transparent;
             }
-            width: 288px;
-            text-align: center;
             padding-left: 0;
             padding-right: 0;
             margin: 0;
+            text-align: center;
             .ant-menu-horizontal > &.ant-menu-item a {
               color: #fff;
+            }
+            ${mq('medium')} {
+              .ant-menu-horizontal > &.ant-menu-item {
+                display: none;
+              }
             }
           `}
           key="connect"
         >
-          <MenuButton type="primary">
-            <span
-              css={css`
-                flex: 1 1 auto;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                margin: 0px 0.5rem 0px 0.25rem;
-                font-size: 1rem;
-                width: fit-content;
-                font-weight: 500;
-                border-radius: 6px;
-                text-shadow: none;
-                letter-spacing: 0.5px;
-              `}
-            >
-              Connect Wallet
-            </span>
-          </MenuButton>
+          <ActionButton>Connect Wallet</ActionButton>
         </Menu.Item>
       </Menu>
     </MenuWrapper>

@@ -1,10 +1,11 @@
 import { Layout, Row, Col } from 'antd'
 /** @jsxImportSource @emotion/react */
-import { jsx } from '@emotion/react'
-import { secondaryColor } from 'utils/constants'
+import { jsx, css } from '@emotion/react'
+import { secondaryColor, mq } from 'utils/constants'
 import ErrorBoundary from './ErrorBoundary'
+import ActionButton from './ActionButton'
 
-const { Content } = Layout
+const { Content, Footer } = Layout
 
 const BaseContainer = ({ children }) => (
   <Layout css={{ backgroundColor: secondaryColor }}>
@@ -22,6 +23,21 @@ const BaseContainer = ({ children }) => (
         </Col>
       </Row>
     </Content>
+    <Footer
+      css={css`
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #fff;
+        border-top: 1px solid ${secondaryColor};
+        display: none;
+
+        ${mq('medium')} {
+          display: block;
+      `}
+    >
+      <ActionButton>Connect Wallet</ActionButton>
+    </Footer>
   </Layout>
 )
 

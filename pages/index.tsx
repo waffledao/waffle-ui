@@ -12,22 +12,11 @@ export default function Home() {
       <Nav />
       <BaseContainer>
         <div css={{ marginTop: '6rem' }}>
-          {[...Array.from(Array(20).keys())].map(i => (
-            <Row
-              key={i}
-              justify="center"
-              align="middle"
-              css={{ marginBottom: '1rem 0', padding: 0 }}
-              gutter={[
-                { xs: 0, sm: 0, md: 32, lg: 32, xl: 32 },
-                { xs: 0, sm: 0, md: 0, lg: 0, xl: 64 },
-              ]}
-            >
-              {[...Array.from(Array(3).keys())].map(a => (
-                <RaffleCard key={a} />
-              ))}
-            </Row>
-          ))}
+          <Row justify="start" align="middle" css={{ marginBottom: '1rem', padding: 0 }} gutter={[32, 32]}>
+            {[...Array.from(Array(20).keys())].map(a => (
+              <RaffleCard key={a} id={a} />
+            ))}
+          </Row>
         </div>
       </BaseContainer>
     </>

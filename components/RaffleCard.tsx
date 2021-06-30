@@ -1,6 +1,6 @@
 import { Divider, Row, Col, Card, Statistic, Progress, Typography } from 'antd'
 /** @jsxImportSource @emotion/react */
-import { jsx } from '@emotion/react'
+import { jsx, css } from '@emotion/react'
 import { primaryColor } from 'utils/constants'
 
 const RaffleCard = () => (
@@ -25,7 +25,14 @@ const RaffleCard = () => (
         <Col span={12}>
           <Statistic
             title={
-              <Typography.Title level={5}>
+              <Typography.Title
+                level={5}
+                css={css`
+                  &.ant-typography {
+                    margin-bottom: 0;
+                  }
+                `}
+              >
                 <span css={{ color: primaryColor, fontSize: '1.1rem' }}>Ticket Price</span>
               </Typography.Title>
             }
@@ -36,7 +43,7 @@ const RaffleCard = () => (
         <Col span={12}>
           <Statistic
             title={
-              <Typography.Title level={5}>
+              <Typography.Title level={5} css={{ marginBottom: 0 }}>
                 <span css={{ color: primaryColor, fontSize: '1.1rem' }}>Closes in</span>
               </Typography.Title>
             }

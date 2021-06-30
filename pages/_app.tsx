@@ -24,8 +24,37 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="title" content="Waffle | NFT Raffles" />
-
         <title>Waffle | NFT Raffles</title>
+        <style
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            /* eslint-disable max-len */
+            __html: `
+              @font-face {
+                font-family: 'Inter';
+                font-display: swap;
+                font-weight: 400;
+                src: url('/fonts/Inter-Regular.tff') format('woff');
+              }
+
+              @font-face {
+                font-family: 'Inter';
+                font-display: swap;
+                font-weight: 500;
+                src: url('/fonts/Inter-Medium.tff') format('woff');
+              }
+
+              @font-face {
+                font-family: 'Inter';
+                font-display: swap;
+                font-weight: 600;
+                src: url('/fonts/Inter-SemiBold.tff') format('woff');
+              }
+            }
+            `,
+            /* eslint-enable max-len */
+          }}
+        />
         <link rel="shortcut icon" href="/favicon.ico" />
         {typeof window === 'undefined' && (
           <style

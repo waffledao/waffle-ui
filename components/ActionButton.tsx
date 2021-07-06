@@ -4,7 +4,7 @@ import { Button } from 'antd'
 import { jsx, css } from '@emotion/react'
 import styled from '@emotion/styled'
 
-const ButtonWrapper = styled(Button)`
+const ButtonWrapper = styled(props => <Button {...props} />)`
   text-align: center;
   outline: none;
   text-decoration: none;
@@ -18,10 +18,11 @@ const ButtonWrapper = styled(Button)`
 
 type ActionButtonProps = {
   children: string
+  size: string
 }
 
-const ActionButton = ({ children }: ActionButtonProps) => (
-  <ButtonWrapper type="primary">
+const ActionButton = ({ children, size }: ActionButtonProps) => (
+  <ButtonWrapper size={size} type="primary">
     <span
       css={css`
         font-weight: 600;

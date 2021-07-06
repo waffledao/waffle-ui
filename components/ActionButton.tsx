@@ -18,7 +18,7 @@ const ButtonWrapper = styled(props => <Button {...props} />)`
 
 type ActionButtonProps = {
   children: string
-  size: string
+  size?: string
 }
 
 const ActionButton = ({ children, size }: ActionButtonProps) => (
